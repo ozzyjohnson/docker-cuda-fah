@@ -22,18 +22,18 @@ RUN \
          --yes \
          --no-install-recommends \
 	 --no-install-suggests \
-       adduser \
-       libc6 \
+       adduser=3.113+nmu3 \
+       libc6=2.19-12 \
     && wget \
          $FAH_INSTALL \
-         - P /tmp \
+         -P /tmp \
          --no-verbose \
          --no-check-certificate \
     && dpkg \
          -i \
          --force-depends \
-       fahclient_${FAH_VERSION}_amd64.deb \
-    && rm /tmp/*
+       /tmp/fahclient_${FAH_VERSION}_amd64.deb \
+    && rm /tmp/* \
     
 
 # Clean up packages.
